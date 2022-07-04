@@ -1,0 +1,57 @@
+﻿@using Entities.Concrete
+@model List<WriterUser>
+
+@{
+    ViewData["Title"] = "UserRoleList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card card-body">
+        <div class="table-responsive">
+            <div>
+                <table class="table align-items-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" class="sort" data-sort="name">Kullanıcı</th>
+                            <th scope="col" class="sort" data-sort="budget">Email</th>
+                            <th scope="col" class="sort" data-sort="status">Ünvan</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="#" class="avatar rounded-circle mr-3">
+                                            <img alt="Image placeholder" src="@item.ImageUrl">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">@item.Name @item.Surname</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    @item.Email
+                                </td>
+                                <td>
+                                    <span class="badge badge-dot mr-4">
+                                        <i class="bg-info"></i>
+                                        <span class="status">@item.Career</span>
+                                    </span>
+                                </td>
+                                <td><a href="/AdminRole/AssignRole/@item.Id" class="btn btn-info">Rol Ata</a></td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

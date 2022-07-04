@@ -1,0 +1,85 @@
+﻿@model BlogModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card card-body">
+        <div class="table-responsive">
+            <div>
+                <table class="table align-items-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" class="sort" data-sort="name">Makale</th>
+                            <th scope="col" class="sort" data-sort="budget">Yazar</th>
+                            <th scope="col" class="sort" data-sort="status">Drum</th>
+                            <th scope="col" class="sort" data-sort="completion">Okunma Sayısı</th>
+                            <th scope="col" class="sort" data-sort="completion">Eklenme Tarihi</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        @foreach (var item in Model.BlogDtos)
+                        {
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <a href="#" class="avatar rounded-circle mr-3">
+                                            <img alt="Image placeholder" src="@item.ImageUrl">
+                                        </a>
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">@item.Title</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    @item.WriterName @item.WriterSurname
+                                </td>
+                                @if (item.Status == true)
+                                {
+                                    <td>
+                                        <span class="badge badge-dot mr-4">
+                                            <i class="bg-info"></i>
+                                            <span class="status">online</span>
+                                        </span>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <span class="badge badge-dot mr-4">
+                                            <i class="bg-red"></i>
+                                            <span class="status">offline</span>
+                                        </span>
+                                    </td>
+                                }
+
+                                <td>
+                                    @item.ReadCount Kişi Tarafınfan...
+                                </td>
+                                <td>@(((DateTime)item.DateAdded).ToString("MMM.dd.yyyy"))</td>
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-black" style="color:darkblue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="ni ni-align-left-2 text-info"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="/Blog/BlogDetail/@item.BlogID">İncele</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+

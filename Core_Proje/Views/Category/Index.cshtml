@@ -1,0 +1,76 @@
+﻿@using Entities.Concrete
+@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card card-body">
+        <div class="table-responsive">
+            <div>
+                <table class="table align-items-center">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" class="sort" data-sort="name">Kategori</th>
+                            <th scope="col" class="sort" data-sort="budget">Blog Sayısı</th>
+                            <th scope="col" class="sort" data-sort="status">Durum</th>
+                            <th scope="col" class="sort" data-sort="completion">Eklenme Tarihi</th>
+                            <th scope="col" class="sort" data-sort="completion"><a href="/Category/Add" class="btn btn-out-line-light sort btn-sm text-info">Yeni Kategori</a></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="list">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th scope="row">
+                                    <div class="media align-items-center">
+                                        <div class="media-body">
+                                            <span class="name mb-0 text-sm">@item.CategoryName</span>
+                                        </div>
+                                    </div>
+                                </th>
+                                <td class="budget">
+                                    @item.BlogCount 
+                                </td>
+                                @if (item.Status == true)
+                                {
+                                    <td>
+                                        <span class="badge badge-dot mr-4">
+                                            <i class="bg-info"></i>
+                                            <span class="status">online</span>
+                                        </span>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <span class="badge badge-dot mr-4">
+                                            <i class="bg-red"></i>
+                                            <span class="status">offline</span>
+                                        </span>
+                                    </td>
+                                }
+                                <td>@(((DateTime)item.AddedDate).ToString("MMM.dd.yyyy"))</td>
+                                <td class="text-right">
+                                    <div class="dropdown">
+                                        <a class="btn btn-sm btn-icon-only text-black" style="color:darkblue" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="ni ni-align-left-2 text-info"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                            <a class="dropdown-item" href="/Category/Update/@item.CategoryID">Güncelle</a>
+                                            <a class="dropdown-item" href="/Category/Delete/@item.CategoryID">Sil</a>
+                                            <a class="dropdown-item" href="/Category/GetByBlogs/@item.CategoryID">Bloglar</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

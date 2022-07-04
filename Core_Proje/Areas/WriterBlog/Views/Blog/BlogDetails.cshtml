@@ -1,0 +1,64 @@
+﻿@model Entities.Concrete.Blog
+
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/_WriterBlogsLayout.cshtml";
+}
+
+<section class="banner-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                <div class="blog-grid-top">
+                    <div class="b-grid-top">
+                        <div class="blog_info_left_grid">
+                            <a href="single.html">
+                                <img src="@Model.ImageUrl" class="img-fluid" alt="">
+                            </a>
+                        </div>
+                        <div class="blog-info-middle">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="far fa-calendar-alt"></i>  @(((DateTime)Model.DateAdded).ToString("MMM.dd.yyyy"))
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-eye"></i> @Model.ReadCount
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>
+                        <a href="single.html">@Model.Title </a>
+                    </h3>
+                    <p>
+                        <a class="col-lg-4">
+                            @Model.Content
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+                <div class="right-blog-info text-left">
+                    <div class="tech-btm">
+                        <img src="~/web/images/banner1.jpg" class="card-img-top img-fluid" alt="">
+                    </div>
+                    <div class="tech-btm">
+                        <h4>Haber bültenimize kaydolun</h4>
+                        <a style="font-size:16px; padding:10px 110px;" href="/Writer/Register/Index/" class="btn btn-primary read-m">Şimdi Kayıt OL</a>
+                    </div>
+                    @await Component.InvokeAsync("TopBlog")
+                    @await Component.InvokeAsync("WriterList")
+                    @await Component.InvokeAsync("ThreeTopRatedBlog")
+
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+

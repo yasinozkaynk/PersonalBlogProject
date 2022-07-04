@@ -1,0 +1,80 @@
+﻿@using Entities.DTOs
+@model List<BlogDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div style="position:relative;top:-70px;" class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Yazılarım</h4>
+                            <p class="card-description">
+                                Yeni Blog<a style="color:red;position:relative;left:-20px;" class="btn btn-link btn-fw" href="/Writer/Blog/InsertBlog">Ekle</a>
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                #
+                                            </th>
+                                            <th>
+                                                Başlık
+                                            </th>
+                                            <th>
+                                                İçerik
+                                            </th>
+                                            <th>
+                                                Eklendiği Tarih
+                                            </th>
+                                            <th>
+                                                Okunma Sayısı
+                                            </th>
+                                            <th>
+
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+
+                                            <tr>
+                                                <td class="py-1">
+                                                    <img src="@item.ImageUrl" alt="image" />
+                                                </td>
+                                                <td>
+                                                    @item.Title
+                                                </td>
+                                                <td>
+                                                    @item.Content.Substring(0, 30)...
+                                                </td>
+                                                <td>
+                                                    @(((DateTime)item.DateAdded).ToString("MMM.dd.yyyy"))
+                                                </td>
+                                                <td>
+                                                    @item.ReadCount
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-inverse-dark" href="/Writer/Blog/EditBlog/@item.BlogID">Detay</a>
+                                                </td>
+
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

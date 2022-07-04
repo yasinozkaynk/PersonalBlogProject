@@ -1,0 +1,62 @@
+﻿@using Entities.DTOs
+@model List<UserDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="main-content" id="panel">
+    <div class="container-fluid mt--6">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-xl-3 order-xl-2">
+                    <div class="card card-profile">
+                        <img src="~/argon-dashboard-master/assets/img/theme/img-1-1000x600.jpg"  alt="Image placeholder" class="card-img-top">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-3 order-lg-2">
+                                <div class="card-profile-image">
+                                    <a href="#">
+                                        <img src="@item.ImageUrl" class="rounded-circle">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-sm btn-info  mr-4 ">Connect</a>
+                                <a href="#" class="btn btn-sm btn-default float-right">Message</a>
+                            </div>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="text-center">
+                                <h5 class="h3">
+                                    @item.WriterName @item.WriterSurname<span class="font-weight-light">, @item.Age</span>
+                                </h5>
+                                <div class="h5 font-weight-300">
+                                    <i class="ni location_pin mr-2"></i>@item.Creer
+                                </div>
+                                <div>
+                                    <i class="ni education_hat mr-2">Toplam Okunma Sayısı :</i>@item.ReadCount
+                                </div>
+                                <div>
+                                    <i class="ni education_hat mr-2">Blog Sayısı :</i>@item.BlogCount
+                                </div>
+                                <div>
+                                    <i class="ni education_hat mr-2">Telefon :</i>@item.PhoneNumber
+                                </div>
+                                <div class="h5 font-weight-300">
+                                    <i class="ni location_pin mr-2">EMail :</i>@item.Email
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+
+

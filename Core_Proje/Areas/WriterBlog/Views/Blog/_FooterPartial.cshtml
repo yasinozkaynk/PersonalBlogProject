@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+                <h3>Hakkımızda</h3>
+                <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. lacinia eget consectetur sed, convallis at tellus..</p>
+            </div>
+            <div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+                @await Component.InvokeAsync("ThreeTopRatedBlog")
+            </div>
+            <div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
+                <div class="tech-btm">
+                    <img src="~/web/images/banner1.jpg" class="card-img-top img-fluid" alt="">
+                </div>
+                <div class="tech-btm">
+                    <h4 style="color:white;">Haber bültenimize kaydolun</h4>
+                    <a style="font-size:16px; padding:10px 110px;" href="/Writer/Register/Index/" class="btn btn-primary read-m">Şimdi Kayıt OL</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-cpy text-center">
+            <div class="footer-social">
+                <div class="copyrighttop">
+                    <ul>
+                        <li class="mx-3">
+                            <a class="facebook" href="#">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="facebook" href="#">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li class="mx-3">
+                            <a class="facebook" href="#">
+                                <i class="fab fa-google-plus-g"></i>
+                                <span>Google+</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="facebook" href="#">
+                                <i class="fab fa-pinterest-p"></i>
+                                <span>Pinterest</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

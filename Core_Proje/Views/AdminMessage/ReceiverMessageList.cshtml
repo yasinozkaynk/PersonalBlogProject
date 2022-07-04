@@ -1,0 +1,42 @@
+﻿@using Entities.Concrete
+@model List<WriterMessage>
+
+@{
+    ViewData["Title"] = "ReceiverMessageList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yazar-Admin Gelen Kutusu</h4>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Gönderen</th>
+                            <th>Konu</th>
+                            <th>Tarih</th>
+                            <th>Sil</th>
+                            <th>Mesajı Gör</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.SenderName</td>
+                                <td>@item.Subject</td>
+                                <td>@item.Date</td>
+                                <td><a href="/AdminMessage/AdminMessageDelete/@item.WriterMessageID" class="btn btn-outline-danger">Sil</a></td>
+                                <td><a href="/AdminMessage/AdminMessageDetails/@item.WriterMessageID" class="btn btn-outline-info">Mesajı Gör</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a asp-for="AdminMessageAdd" href="/AdminMessage/AdminMessageSend" class="btn btn-outline-primary">Yeni Mesaj Oluştur</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewData["Title"] = "EditBlog";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditBlog", "Blog", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> Makale Düzenle </p>
+                <form class="forms-sample">
+                    @Html.HiddenFor(x => x.BlogID)
+                    @Html.HiddenFor(x => x.Id)
+                    @Html.HiddenFor(x => x.Comment)
+                    @Html.HiddenFor(x => x.ReadCount)
+                    @Html.HiddenFor(x => x.DateAdded)
+                    @Html.HiddenFor(x => x.DateOfUpdate)
+                    <br />
+                    @Html.Label("Görsel")
+                    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.ImageUrl)
+                    <br />
+                    <label>Başlık</label>
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Title)
+                    <br />
+                    <label>İçerik</label>
+                    @Html.TextBoxFor(x => x.Content, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Content)
+                    <br />
+                    <button class="btn btn-info">Kaydet</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+}

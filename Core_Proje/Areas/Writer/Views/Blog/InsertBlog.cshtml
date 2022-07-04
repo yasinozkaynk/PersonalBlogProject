@@ -1,0 +1,33 @@
+﻿@model PersonalBlog_Proje.Areas.Writer.Models.BlogInsertViewModel
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Makale Ekle</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputName1">Resim</label>
+                    <input type="text" asp-for="ImageUrl" class="form-control" id="exampleInputName1" placeholder="resim url...">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Başlık</label>
+                    <input type="text" asp-for="Title" class="form-control" id="exampleInputName1" placeholder="başlık">
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea1">İçerik</label>
+                    <textarea class="form-control" asp-for="Content" id="exampleTextarea1" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Başlık</label>
+                    <input type="text" asp-for="Id" class="form-control" id="exampleInputName1" placeholder="başlık">
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Ekle</button>
+                <button class="btn btn-light">İptal</button>
+            </form>
+        </div>
+    </div>
+</div>

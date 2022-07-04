@@ -1,0 +1,33 @@
+﻿@using Entities.Concrete
+@model List<WriterUser>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<div class="tech-btm">
+    <h4>Yazarlar</h4>
+    @foreach (var item in Model)
+    {
+        <div class="blog-grids row mb-3 text-left">
+            <div class="col-md-5 blog-grid-left">
+                <a href="/WriterBlog/Blog/Index?userId=@item.Id">
+                    <img style="border-radius:150px;width:100px;height:100px;" src="@item.ImageUrl" class="card-img-top img-fluid" alt="">
+                </a>
+            </div>
+            <div class="col-md-7 blog-grid-right">
+                <h5>
+                    <a style="position:relative;left:-50px;top:20px;" href="/WriterBlog/Blog/Index?userId=@item.Id">@item.Name @item.Surname</a>
+                </h5>
+                <div class="sub-meta">
+                    <span style="position:relative;left:-50px;top:20px;" >
+                        @item.Career
+                    </span>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

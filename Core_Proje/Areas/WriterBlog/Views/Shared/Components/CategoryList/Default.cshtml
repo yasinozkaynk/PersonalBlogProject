@@ -1,0 +1,15 @@
+﻿@model PersonalBlog_Proje.Areas.WriterBlog.Models.BlogModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<ol class="breadcrumb">
+    @foreach (var item in Model.Categories)
+    {
+        <li class="breadcrumb-item active">
+            <a href="/WriterBlog/Blog/BlogList/@item.CategoryID">@item.CategoryName</a>
+        </li>
+    }
+</ol>

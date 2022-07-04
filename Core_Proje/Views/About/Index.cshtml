@@ -1,0 +1,94 @@
+﻿@*@model EntityLayer.Concrete.About*@
+@model PersonalBlog_Proje.Areas.Writer.Models.UserEditViewModel
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@*@using (Html.BeginForm("Index", "About", FormMethod.Post))
+    {
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-description"> Deneyim Düzenleme Paneli </p>
+                    <form class="forms-sample">
+                        <div class="form-group">
+                            <label>ID</label>
+                            @Html.TextBoxFor(x => x.AboutID, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Başlık</label>
+                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Yaş</label>
+                            @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Mail</label>
+                            @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Adres</label>
+                            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon</label>
+                            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Görsel URL</label>
+                            @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Açıklama</label>
+                            @Html.TextAreaFor(x => x.Description, 6, 3, new { @class = "form-control" })
+                        </div>
+                        <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                        <button class="btn btn-dark">İptal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }*@
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Profil Bilgilerini Düzenle</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputName1">Adınız</label>
+                    <input type="text" asp-for="Name" class="form-control" id="exampleInputName1" placeholder="ad">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Soyadınız</label>
+                    <input type="text" asp-for="Surname" class="form-control" id="exampleInputName1" placeholder="soyad">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Şifreniz</label>
+                    <input type="password" asp-for="Password" class="form-control" id="exampleInputName1" placeholder="Şifreniz">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Şifre Tekrar</label>
+                    <input type="password" asp-for="PasswordConfirm" class="form-control" id="exampleInputName1" placeholder="Şifre Tekrar">
+                </div>
+                <div class="form-group">
+                    <label>Resim Seç</label>
+                    <input type="file" asp-for="Picture">
+                    @*<div class="input-group col-xs-12">
+                            <input type="text" class="form-control file-upload-info" disabled placeholder="Resim yükleyin">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-primary" type="button">Yükle</button>
+                            </span>
+                        </div>*@
+                </div>
+
+                <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                <button class="btn btn-light">İptal</button>
+            </form>
+        </div>
+    </div>
+</div>
